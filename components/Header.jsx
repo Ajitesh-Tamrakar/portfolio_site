@@ -10,12 +10,12 @@ export default function Header() {
             <p className="max-w-2xl mx-auto font-Ovo">I am a frontend developer from California, USA with 10 years of experience in multiple companies like Microsoft, Tesla and Apple.</p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-                <a href="#contact"
+                <a href="mailto:ajiteshtamrakar15@gmail.com"
                     className="px-10 py-2.5 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent">
                     contact me <img src="/assets/right-arrow-white.png" alt="" className="w-4" />
                 </a>
 
-                <a href="../../dev-icon.png" download
+                <a href="/assets/Resume_Ajitesh.pdf" download
                     className="px-10 py-2.5 rounded-full border border-gray-300 dark:border-white/25 hover:bg-slate-100/70 dark:hover:bg-darkHover flex items-center gap-2 bg-white dark:bg-transparent dark:text-white">
                     my resume <img src="/assets/download-icon.png" alt="" className="w-4 dark:invert" />
                 </a>

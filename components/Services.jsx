@@ -1,14 +1,14 @@
 export default function Services() {
     const services = [
         {
-            name: 'Web design',
+            name: 'Sketch',
             icon: '/assets/web-icon.png',
-            description: 'Web development is the process of building, programming...',
-            link: '#',
+            description: 'Automated Estimation Generation from Glass Design Images',
+            link: '/sketch',
         },
         {
             name: 'Mobile app',
-            icon: '/assets/mobile-icon.png',
+            icon: '/assets/mobile-icon.png',                                                 
             description: 'Web development is the process of building, programming...',
             link: '#',
         },
@@ -46,23 +46,33 @@ export default function Services() {
                             <h3 className="text-lg mb-3 text-gray-700 dark:text-white font-Ovo">{service.name}</h3>
                             <p className="text-sm text-gray-600 leading-5 dark:text-white/80 mb-5">{service.description}</p>
                             
-                            <a href={service.link} className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors group">
-                                Read more 
-                                <svg 
-                                    width="14" 
-                                    height="14" 
-                                    viewBox="0 0 24 24" 
-                                    fill="none" 
-                                    stroke="currentColor" 
-                                    strokeWidth="2" 
-                                    strokeLinecap="round" 
-                                    strokeLinejoin="round"
-                                    className="group-hover:translate-x-1 transition-transform"
-                                >
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
-                                </svg>
-                            </a>
+                            <div className="flex items-center justify-between">
+                                <a href={service.link} className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors group">
+                                    Read more 
+                                    <svg 
+                                        width="14" 
+                                        height="14" 
+                                        viewBox="0 0 24 24" 
+                                        fill="none" 
+                                        stroke="currentColor" 
+                                        strokeWidth="2" 
+                                        strokeLinecap="round" 
+                                        strokeLinejoin="round"
+                                        className="group-hover:translate-x-1 transition-transform"
+                                    >
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
+                                
+                                <a href={service.link} className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors group">
+                                    <img src="/assets/github-icon.png" alt="" className="w-5 dark:hidden group-hover:scale-110 transition-transform" />
+                                    <img src="/assets/github-icon-dark.png" alt="" className="w-5 hidden dark:block group-hover:scale-110 transition-transform" />
+                                    Repo
+                                    <img src="/assets/arrow-icon.png" alt="" className="w-2 dark:hidden group-hover:translate-x-1 transition-transform" />
+                                    <img src="/assets/arrow-icon-dark.png" alt="" className="w-2 hidden dark:block group-hover:translate-x-1 transition-transform" />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 ))}

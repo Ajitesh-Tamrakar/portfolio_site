@@ -16,7 +16,7 @@ export default function Page() {
             <About />
             <Services />
             <Work />
-            <Contact />
+            {/* <Contact /> */}
             <Footer />
         </>
     )

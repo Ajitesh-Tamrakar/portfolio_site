@@ -14,12 +14,12 @@ export default function About() {
             icon2: '/assets/code-icon-dark.png',
             description: 'HTML, CSS, JavaScript React Js, Next Js',
         },
-        {
-            name: 'Education',
-            icon1: '/assets/edu-icon.png',
-            icon2: '/assets/edu-icon-dark.png',
-            description: 'B.Tech in Computer Science (AI&ML) LNCT&S Bhopal',
-        },
+        // {
+        //     name: 'Education',
+        //     icon1: '/assets/edu-icon.png',
+        //     icon2: '/assets/edu-icon-dark.png',
+        //     description: 'B.Tech in Computer Science (AI&ML) LNCT&S Bhopal',
+        // },
         {
             name: 'Projects',
             icon1: '/assets/project-icon.png',
