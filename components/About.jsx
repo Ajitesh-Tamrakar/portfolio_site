@@ -48,7 +48,10 @@ export default function About() {
                     </div>
                 </div>
                 <div className="flex-1">
-                    <p className="mb-10 max-w-2xl font-Ovo">I am an experienced Frontend Developer with over a decade of professional expertise in the field. Throughout my career, I have had the privilege of collaborating with prestigious organizations, contributing to their success and growth.</p>
+                    <p className="mb-10 max-w-2xl font-Ovo">I am a Computer Science (AI & ML) student who learns by building. I work on end-to-end projects that aim to solve real-world problems by combining AI automation, computer vision, and backend systems.
+
+Through my internship and personal projects, I have worked on OCR pipelines, computer vision workflows, backend services, and AI-powered SaaS applications. I am currently strengthening my foundations in data analytics and machine learning, with the goal of moving toward more ML-focused work.
+</p>
 
                     <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
                         {data.map((data) => (

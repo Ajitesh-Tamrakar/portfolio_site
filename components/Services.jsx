@@ -7,22 +7,22 @@ export default function Services() {
             link: '/sketch',
         },
         {
-            name: 'Mobile app',
+            name: 'AI-Powered Marketing Creatives',
             icon: '/assets/mobile-icon.png',                                                 
             description: 'Web development is the process of building, programming...',
-            link: '#',
+            link: '/asset-generation',
         },
         {
-            name: 'UI/ UX design',
+            name: 'Object Detection',
             icon: '/assets/ui-icon.png',
             description: 'Web development is the process of building, programming...',
-            link: '#',
+            link: '/object-detection',
         },
         {
-            name: 'Graphics design',
+            name: 'Web Accountancy',
             icon: '/assets/graphics-icon.png',
             description: 'Web development is the process of building, programming...',
-            link: '#',
+            link: '/accountancy',
         }
     ];
     return (

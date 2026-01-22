@@ -6,8 +6,12 @@ export default function Header() {
                 Hi! I&apos;m Ajitesh Tamrakar
                 <img src="/assets/hand-icon.png" alt="" className="w-6 mb-1" />
             </h3>
-            <h1 className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">frontend web developer based in London.</h1>
-            <p className="max-w-2xl mx-auto font-Ovo">I am a frontend developer from California, USA with 10 years of experience in multiple companies like Microsoft, Tesla and Apple.</p>
+            <h1 className="text-3xl sm:text-6xl lg:text-[50px] font-Ovo">AI automation & applied ML developer  
+building practical, end-to-end systems.
+</h1>
+            <p className="max-w-2xl mx-auto font-Ovo">
+I work on AI automation and computer vision systems, using full-stack development as an enabling layer to build end-to-end solutions.
+</p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
                 <a href="mailto:ajiteshtamrakar15@gmail.com"
