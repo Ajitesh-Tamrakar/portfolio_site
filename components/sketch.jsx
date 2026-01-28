@@ -622,7 +622,16 @@ export default function Sketch() {
       level: 0,
     },
     { id: "Conclusion", label: "Conclusion", level: 0 },
+    { id: "demo", label: "See Demo", level: 0 },
   ];
+
+  const scrollToDemo = (e) => {
+    e.preventDefault();
+    const demoSection = document.getElementById('demo');
+    if (demoSection) {
+      demoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const systemSupposedToDOItems = [
     "Analyze design images ",
@@ -662,12 +671,17 @@ export default function Sketch() {
   const strucRepDetectedDimensions = ['Its four corner coordinates ', 'Explicit dimensions for top, right, bottom, and left edges ', 'Confidence metadata from OCR ', 'Original text location information ' ]
   const humanpoints = ['View the original uploaded image for context ', 'Inspect individual cropped components ', 'Edit incorrectly detected values ', 'Manually enter missing dimensions '  ]
   return (
-    <Document
-      tableOfContents={tableOfContents}
-      title={"Glass Estimation Automation System"}
-      subtitle={"Technical Documentation"}
-    >
-      <Section id={"introduction"} title={"Introduction"}>
+    <>
+      <Document
+        tableOfContents={tableOfContents}
+        title={"Glass Estimation Automation System"}
+        subtitle={"Technical Documentation"}
+        showDemo={true}
+      >
+
+      
+
+        <Section id={"introduction"} title={"Introduction"}>
         <Paragraph>
           The objective of this project was to automate the estimation
           generation process for glass manufacturers by analyzing design images
@@ -1154,6 +1168,31 @@ export default function Sketch() {
         <Paragraph>Although currently limited to rectangular geometries and rule-based estimation, the foundation has been intentionally designed for extensibility. Deep learning–based shape detection, contextual material inference, and multi-shape relational reasoning can be integrated in future iterations without redesigning the pipeline. </Paragraph>
         <Paragraph>More importantly, this project illustrates a practical engineering principle: automation should enhance workflows, not replace human judgment blindly. By balancing algorithmic reasoning with human validation, the system achieves speed without sacrificing trust — which is essential in real-world business applications. </Paragraph>
       </Section>
-    </Document>
+
+      {/* Demo Section */}
+      <Section id="demo" title="Project Demo">
+        <Paragraph>
+          Watch the system in action — from uploading a hand-drawn sketch to generating a complete PDF estimation.
+        </Paragraph>
+        <div className="mt-8 bg-gray-100 dark:bg-white/5 rounded-lg p-6 border border-gray-300 dark:border-white/20">
+          <div className="aspect-video w-full bg-gray-900 dark:bg-black rounded-lg flex items-center justify-center">
+            {/* Replace the src with your actual video URL */}
+            <video 
+              className="w-full h-full rounded-lg"
+              controls
+              poster="/path/to/poster-image.jpg"
+            >
+              <source src="/path/to/your/demo-video.mp4" type="video/mp4" />
+              <source src="/path/to/your/demo-video.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p className="text-sm text-gray-600 dark:text-white/60 text-center mt-4">
+            Demo video showing the complete workflow from sketch upload to PDF generation
+          </p>
+        </div>
+      </Section>
+      </Document>
+    </>
   );
 }

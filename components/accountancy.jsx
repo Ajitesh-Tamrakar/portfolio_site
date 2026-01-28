@@ -1,367 +1,286 @@
-export default function Accountancy() {
+import { Document, Section, SubSection, Paragraph, List, Code, SubsectionHighlight } from './writingTools';
+
+export default function ObjectDetection() {
+    const tableOfContents = [
+        { id: 'introduction', label: 'Introduction', level: 0 },
+        { id: 'real-world-problem', label: 'The Real-World Problem in Small Businesses', level: 1 },
+        { id: 'solution-approach', label: 'Solution Approach: Keep It Simple, Make It Useful', level: 1 },
+        { id: 'architecture', label: 'Core System Architecture', level: 0 },
+        { id: 'database-design', label: 'Database Design & Model Relationships', level: 1 },
+        { id: 'business-workflow', label: 'Business Workflow & Features', level: 0 },
+        { id: 'bill-management', label: 'Digital Bill Management', level: 1 },
+        { id: 'ledger-system', label: 'Dealer & Ledger System', level: 1 },
+        { id: 'daily-tracking', label: 'Daily Collection Tracking', level: 1 },
+        { id: 'dashboard', label: 'Dashboard & Business Insights', level: 1 },
+        { id: 'filtering', label: 'Filtering, Records & Usability', level: 1 },
+        { id: 'security', label: 'Security Gaps & Improvements', level: 0 },
+        { id: 'learnings', label: 'What I Learned from Building This', level: 0 },
+        { id: 'future', label: 'Future Improvements', level: 0 },
+    ];
+
     return (
-        <div className="w-full px-[12%] py-10 pt-32 scroll-mt-20">
-            {/* Page Header */}
-            <div className="text-center mb-12">
-                <h4 className="text-center mb-2 text-lg font-Ovo text-gray-600 dark:text-white/80">Technical Documentation</h4>
-                <h1 className="text-center text-5xl font-Ovo text-gray-800 dark:text-white mb-5">Business Accounting System with Django</h1>
-                <div className="w-24 h-1 bg-gradient-to-r from-[#b820e6] to-[#da7d20] mx-auto rounded-full"></div>
-            </div>
+        <Document 
+            tableOfContents={tableOfContents} 
+            title="Accounting System for Small Businesses"
+            subtitle="Technical Documentation"
+        >
+            {/* Introduction */}
+            <Section id="introduction" title="Introduction">
+                <SubSection id="real-world-problem" title="The Real-World Problem in Small Businesses">
+                    <Paragraph>
+                        Many small businesses still manage their accounts manually using physical registers and paper bills. Every purchase, payment, and collection is written down by hand. While this system works, it comes with several limitations:
+                    </Paragraph>
+                    <List items={[
+                        'Bills are difficult to search later',
+                        'Ledgers are prone to human error',
+                        'Revenue trends are hard to visualize',
+                        'Inventory decisions rely on flipping through past records',
+                        'Data is not accessible remotely'
+                    ]} />
+                    <Paragraph>
+                        Most full-scale accounting software expects users to enter detailed item-level data for every bill. However, small shop owners often do not have the time, digital literacy, or operational need to input that level of detail. Their primary concern is simple:
+                    </Paragraph>
+                    <List items={[
+                        'Who gave the bill?',
+                        'On what date?',
+                        'What was the total amount?',
+                        'How much money was collected today?'
+                    ]} />
+                    <Paragraph>
+                        The gap was clear — existing systems were either too manual or too complex.
+                    </Paragraph>
+                </SubSection>
 
-            {/* Content Container */}
-            <div className="max-w-5xl mx-auto bg-white dark:bg-darkTheme border border-gray-200 dark:border-white/20 rounded-lg p-8 md:p-12">
-                
-                {/* Introduction Section */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Introduction</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        Accounting for small businesses is rarely complex — but it is messy.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        Daily collections come from multiple payment modes, bills arrive as images, dealer balances are tracked mentally or in notebooks, and understanding who owes what often requires manual calculations at the end of the day.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        This project, <strong>JBB Projects</strong>, was built to solve exactly that problem: to create a single system where daily money, bills, payments, dealer ledgers, and business insights live together in one place.
-                    </p>
-                </section>
+                <SubSection id="solution-approach" title="Solution Approach: Keep It Simple, Make It Useful">
+                    <Paragraph>
+                        Instead of building a heavy accounting system, this project focused on simplifying what small businesses already do.
+                    </Paragraph>
+                    <Paragraph>
+                        The idea was not to change their workflow — but to digitize it.
+                    </Paragraph>
+                    <Paragraph>
+                        Rather than forcing item-wise bill entry, the system allows users to:
+                    </Paragraph>
+                    <List items={[
+                        'Upload a photo of the bill',
+                        'Enter dealer name, date, and total amount',
+                        'Automatically maintain a digital ledger',
+                        'Track daily collections divided into Cash, UPI, and Card',
+                        'Access all past bills remotely'
+                    ]} />
+                    <Paragraph>
+                        This keeps the process familiar while removing friction. The shop owner still works the way they are used to — but now:
+                    </Paragraph>
+                    <List items={[
+                        'Bills are searchable',
+                        'Ledgers are auto-calculated',
+                        'Revenue trends can be visualized',
+                        'Records are stored safely online'
+                    ]} />
+                    <Paragraph>
+                        This project was my first attempt at solving a real-world problem while learning web technologies. The primary goal was hands-on learning, but the direction was practical: build something simple enough for small businesses to actually use.
+                    </Paragraph>
+                </SubSection>
+            </Section>
 
-                {/* The Problem */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">The Problem This Project Solves</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        Most small businesses face the same operational issues:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Daily income is split across cash, UPI, and cards</li>
-                        <li>Bills arrive as physical images</li>
-                        <li>Payments are made irregularly</li>
-                        <li>Dealer balances are calculated manually</li>
-                        <li>Business insights are guessed, not measured</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-3">
-                        The goal was not to build enterprise accounting software.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        The goal was simpler: <em>Build a system that reflects how small businesses actually work — and make financial visibility effortless.</em>
-                    </p>
-                </section>
+            {/* Core System Architecture */}
+            <Section id="architecture" title="Core System Architecture">
+                <Paragraph>
+                    The system is built using Django's MVT (Model–View–Template) architecture, structured to keep business logic, data handling, and presentation clearly separated.
+                </Paragraph>
+                <Paragraph>
+                    At the outer layer, the <strong>client (browser)</strong> interacts with the application through HTTP requests. These requests are routed via urls.py, which maps each endpoint to a specific view function inside the accountancy app.
+                </Paragraph>
+                <Paragraph>
+                    The <strong>View layer</strong> acts as the execution core. Each view handles request validation, processes business logic, performs database queries using Django ORM, and prepares structured responses. For example, when a user uploads a bill, the view extracts form data, validates it, stores the image, and creates the corresponding database record. When accessing the dashboard, the view aggregates transactional data and computes balances dynamically.
+                </Paragraph>
+                <Paragraph>
+                    The <strong>Model layer</strong> defines the system's data structure. Instead of writing raw SQL, Django ORM abstracts database operations into Python objects. This improves readability, maintainability, and reduces the risk of query-level errors.
+                </Paragraph>
+                <Paragraph>
+                    At the persistence level, the application uses a <strong>PostgreSQL database hosted on AWS RDS</strong>, ensuring reliable storage, transactional integrity, and production-level database management.
+                </Paragraph>
+                <Paragraph>
+                    Data flows in a predictable cycle:
+                </Paragraph>
+                <Code>
+{`Client → URL Routing → View Logic → ORM → Database → Template Response`}
+                </Code>
+                <Paragraph>
+                    This layered architecture keeps responsibilities isolated. Business logic remains in views, data structure in models, and presentation in templates. The result is a maintainable, scalable system that supports small-business ledger operations without architectural complexity.
+                </Paragraph>
 
-                {/* What the System Does */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">What the System Does</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        JBB Projects is a business accounting and management system that allows users to:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Record daily collections</li>
-                        <li>Manage dealers and suppliers</li>
-                        <li>Upload bill images</li>
-                        <li>Track payments</li>
-                        <li>View dealer-wise ledgers</li>
-                        <li>Calculate outstanding balances</li>
-                        <li>Visualize business performance through dashboards</li>
-                        <li>Maintain daily operational tasks</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        Everything is built around clarity, traceability, and simplicity.
-                    </p>
-                </section>
+                <SubSection id="database-design" title="Database Design & Model Relationships">
+                    <Paragraph>
+                        The accounting system is built around a simple but intentional relational structure. Instead of designing a complex ERP-style schema, the database focuses on clarity, traceability, and practical ledger logic.
+                    </Paragraph>
+                    <Paragraph>
+                        At the center of the system is the <strong>Dealers</strong> model. This acts as the parent entity representing suppliers or business parties. Every financial interaction is tied back to a dealer, making it the anchor point of the ledger system.
+                    </Paragraph>
+                    <Paragraph>
+                        From this core entity, two dependent models extend outward: <strong>Bills</strong> and <strong>Payments</strong>. The relationship is one-to-many — a single dealer can have multiple bills and multiple payments over time. This separation is deliberate. Bills represent obligations (what the business owes), while Payments represent settlements. By keeping them independent, the system preserves full transaction history and maintains auditability.
+                    </Paragraph>
+                    <Paragraph>
+                        The ledger logic emerges directly from this structure:
+                    </Paragraph>
+                    <Code>
+{`Outstanding Balance = Σ(Bills) − Σ(Payments)`}
+                    </Code>
+                    <Paragraph>
+                        Because both models reference the same dealer via foreign keys, calculating balances becomes a structured aggregation rather than manual bookkeeping.
+                    </Paragraph>
+                    <Paragraph>
+                        Two additional models remain independent. <strong>DailyMoneyInputs</strong> tracks overall daily collections (cash, UPI, cards) with a unique date constraint to prevent duplicate entries. This reflects real-world daily revenue recording rather than dealer-specific transactions. <strong>Tasklist</strong> functions separately for operational reminders and does not interfere with financial data.
+                    </Paragraph>
+                    <Paragraph>
+                        Cascade deletion ensures referential integrity — if a dealer is removed, all associated bills and payments are automatically cleaned up, preventing orphaned records.
+                    </Paragraph>
+                    <Paragraph>
+                        Overall, the database design favors clarity over complexity. Each table has a focused responsibility, relationships are intentional, and the structure directly supports how small businesses naturally think about money: bills, payments, and balances.
+                    </Paragraph>
+                </SubSection>
+            </Section>
 
-                {/* Design Philosophy */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Design Philosophy</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        Three principles guided the design:
-                    </p>
-                    <div className="bg-gray-100 dark:bg-white/10 rounded-lg p-6 border border-gray-300 dark:border-white/20">
-                        <ul className="space-y-3">
-                            <li className="text-gray-700 dark:text-white/90">
-                                <strong>1.</strong> Data should be structured, not scattered
-                            </li>
-                            <li className="text-gray-700 dark:text-white/90">
-                                <strong>2.</strong> Every number should be traceable
-                            </li>
-                            <li className="text-gray-700 dark:text-white/90">
-                                <strong>3.</strong> Insights should come from real data, not assumptions
-                            </li>
-                        </ul>
-                    </div>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mt-4">
-                        Instead of complex accounting rules, the system relies on clear relationships and transparent calculations.
-                    </p>
-                </section>
+            {/* Business Workflow & Features */}
+            <Section id="business-workflow" title="Business Workflow & Features">
+                <Paragraph>
+                    This system mirrors how a small business actually operates throughout the day — but digitizes each step without increasing complexity.
+                </Paragraph>
 
-                {/* Core Data Model */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Core Data Model: Keeping It Simple</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        At the heart of the system are five core entities:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li><strong>DailyMoneyInputs</strong> – tracks daily income by payment mode</li>
-                        <li><strong>Dealers</strong> – stores supplier/party information</li>
-                        <li><strong>Bills</strong> – stores bill images and amounts</li>
-                        <li><strong>Payments</strong> – records payments made to dealers</li>
-                        <li><strong>Tasklist</strong> – tracks daily operational tasks</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        Each model mirrors a real business object, not a technical abstraction.
-                    </p>
-                    <div className="bg-pink-50 dark:bg-pink-900/20 border-l-4 border-pink-500 p-4 rounded-r-lg my-4">
-                        <p className="text-gray-800 dark:text-white font-semibold mb-2">Key Design Decision</p>
-                        <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4">
-                            <li>Bills increase outstanding balance</li>
-                            <li>Payments decrease outstanding balance</li>
-                            <li>Dealer ledgers are calculated, not manually stored</li>
-                        </ul>
-                        <p className="text-gray-700 dark:text-white/80 leading-relaxed mt-3">
-                            This avoids data duplication and keeps logic centralized.
-                        </p>
-                    </div>
-                </section>
+                <SubSection id="bill-management" title="Digital Bill Management">
+                    <Paragraph>
+                        Bills are uploaded as images rather than manually entering line-item details. Each bill record stores the image, dealer reference (foreign key), bill date, and amount. Once submitted, the backend validates inputs, stores the file using Django's ImageField, and creates a database entry linked to the selected dealer.
+                    </Paragraph>
+                    <Paragraph>
+                        This transforms physical bill folders into a searchable digital repository. Users can filter by dealer, amount, or date range, and preview images using a lightbox interface. The business value is practical: instant retrieval, GST reference tracking, automatic outstanding updates, and zero dependency on physical storage.
+                    </Paragraph>
+                </SubSection>
 
-                {/* Daily Collection Tracking */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Daily Collection Tracking</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        The system allows only one collection entry per day.
-                    </p>
-                    <h3 className="text-xl font-Ovo text-gray-800 dark:text-white mb-3">This design choice:</h3>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Prevents duplicate records</li>
-                        <li>Enforces data discipline</li>
-                        <li>Makes trend analysis reliable</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-3">
-                        Each day's total is automatically calculated from:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>UPI</li>
-                        <li>Cash</li>
-                        <li>Card transactions</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-3">
-                        This single number becomes the foundation for:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4">
-                        <li>Profit estimation</li>
-                        <li>Dashboard analytics</li>
-                        <li>Historical trends</li>
-                    </ul>
-                </section>
+                <SubSection id="ledger-system" title="Dealer & Ledger System">
+                    <Paragraph>
+                        The ledger system is built around a central <strong>Dealers</strong> model. Each dealer connects to two transaction streams: <strong>Bills</strong> (money owed) and <strong>Payments</strong> (money settled).
+                    </Paragraph>
+                    <Paragraph>
+                        Outstanding logic follows:
+                    </Paragraph>
+                    <Code>
+{`Outstanding = Σ(Bills) − Σ(Payments) + Opening Balance`}
+                    </Code>
+                    <Paragraph>
+                        Ledger entries are merged into a unified timeline and sorted chronologically. Running balance logic recalculates the outstanding amount dynamically. This structure ensures transparency, auditability, and easy reconciliation while maintaining complete transaction history.
+                    </Paragraph>
+                    <Paragraph>
+                        The Records page also highlights top outstanding dealers using aggregation queries, helping prioritize payments strategically.
+                    </Paragraph>
+                </SubSection>
 
-                {/* Dealer & Ledger Management */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Dealer & Ledger Management</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        Dealers are treated as long-term financial relationships, not just names in a list.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-3">
-                        For each dealer, the system tracks:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Opening balance</li>
-                        <li>Bills received</li>
-                        <li>Payments made</li>
-                        <li>Current outstanding amount</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        The ledger view combines bills and payments into a single chronological timeline, showing how balances evolve over time.
-                    </p>
-                    <div className="bg-gray-100 dark:bg-white/10 rounded-lg p-6 border border-gray-300 dark:border-white/20">
-                        <p className="text-center text-gray-700 dark:text-white/90 font-medium">
-                            Outstanding = Total Bills − Total Payments
-                        </p>
-                    </div>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mt-4">
-                        Instead of storing balances directly, the system calculates them using this formula. This guarantees correctness even if historical entries are updated.
-                    </p>
-                </section>
+                <SubSection id="daily-tracking" title="Daily Collection Tracking (Cash, UPI, Cards)">
+                    <Paragraph>
+                        Daily revenue is recorded through a single unified form. The model enforces a unique date constraint and automatically calculates:
+                    </Paragraph>
+                    <Code>
+{`in_total = UPI + Cash + Cards`}
+                    </Code>
+                    <Paragraph>
+                        Validation ensures numeric accuracy and prevents duplicate entries. This simplifies multi-channel revenue tracking and enables daily, weekly, and monthly aggregation for trend analysis.
+                    </Paragraph>
+                </SubSection>
 
-                {/* Bills as Images */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Bills as Images, Not Just Numbers</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        In real businesses, bills are not spreadsheets — they are photos.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-3">
-                        This system supports:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Uploading bill images</li>
-                        <li>Associating them with dealers</li>
-                        <li>Storing dates and amounts</li>
-                        <li>Browsing bills in a gallery view</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        This makes auditing and verification simple: numbers always link back to visual proof.
-                    </p>
-                </section>
+                <SubSection id="dashboard" title="Dashboard & Business Insights">
+                    <Paragraph>
+                        The dashboard consolidates operational KPIs:
+                    </Paragraph>
+                    <List items={[
+                        "Today's collection",
+                        'Estimated profit (20% margin logic)',
+                        'Bills received today',
+                        'Total outstanding across dealers'
+                    ]} />
+                    <Paragraph>
+                        Time-based aggregations (daily, weekly, monthly) are generated using ORM functions like TruncWeek and TruncMonth. A task management widget operates via lightweight API endpoints (GET, POST, PATCH, DELETE), enabling real-time operational tracking.
+                    </Paragraph>
+                    <Paragraph>
+                        The dashboard acts as a decision layer — not just a reporting page.
+                    </Paragraph>
+                </SubSection>
 
-                {/* Payments & Reconciliation */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Payments & Reconciliation</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        Payments are recorded independently of bills.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-3">
-                        This allows:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Partial payments</li>
-                        <li>Multiple payment methods</li>
-                        <li>Flexible reconciliation</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        By separating bills and payments, the system avoids rigid accounting constraints while still maintaining accuracy.
-                    </p>
-                </section>
+                <SubSection id="filtering" title="Filtering, Records & Usability">
+                    <Paragraph>
+                        Advanced filtering is implemented via django-filters, enabling precise queries without complex SQL. Combined filters allow multi-criteria searches (dealer + date + amount).
+                    </Paragraph>
+                    <Paragraph>
+                        UI decisions focus on workflow efficiency: modal forms prevent page reloads, responsive layouts adapt across devices, and inline quick actions reduce navigation friction.
+                    </Paragraph>
+                    <Paragraph>
+                        Overall, the workflow is intentionally structured: Capture → Store → Calculate → Visualize → Decide.
+                    </Paragraph>
+                </SubSection>
+            </Section>
 
-                {/* Dashboard */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Dashboard: Turning Data into Insight</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        The dashboard is designed for quick understanding, not accounting expertise.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-3">
-                        It shows:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Today's collection</li>
-                        <li>Estimated profit</li>
-                        <li>Bills received today</li>
-                        <li>Outstanding balances</li>
-                        <li>Daily, weekly, and monthly trends</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        All charts are generated from real transaction data, using database-level aggregations instead of hardcoded logic.
-                    </p>
-                </section>
+            {/* Security Gaps & Improvements */}
+            <Section id="security" title="Security Gaps & Improvements">
+                <Paragraph>
+                    The current system prioritizes functionality and learning over production-grade security. Authentication is limited to Django Admin, while core routes such as /dashboard/, /records/, and /ledger-view/ are publicly accessible. This introduces clear access-control risks.
+                </Paragraph>
+                <Paragraph>
+                    There is no role-based authorization, meaning sensitive financial data could be viewed without restriction. Additionally, file uploads (bill images) rely on basic validation and do not enforce strict MIME-type or size constraints beyond default handling.
+                </Paragraph>
+                <Paragraph>
+                    Improvements would include:
+                </Paragraph>
+                <List items={[
+                    'Applying @login_required to all financial routes',
+                    'Introducing role-based access control (owner vs staff)',
+                    'Adding stricter file validation and size limits',
+                    'Enabling HTTPS enforcement and secure cookie settings',
+                    'Adding audit logs for financial record changes'
+                ]} />
+                <Paragraph>
+                    These changes would transition the system from learning-grade to production-ready.
+                </Paragraph>
+            </Section>
 
-                {/* Task Management */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Task Management for Daily Operations</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        Accounting doesn't exist in isolation.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-3">
-                        The built-in task list helps track:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Follow-ups</li>
-                        <li>Payment reminders</li>
-                        <li>Operational to-dos</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        It is intentionally lightweight — just enough to support daily workflow without becoming a project management tool.
-                    </p>
-                </section>
+            {/* What I Learned */}
+            <Section id="learnings" title="What I Learned from Building This">
+                <Paragraph>
+                    This project moved beyond CRUD development into structured business logic design. I learned how to:
+                </Paragraph>
+                <List items={[
+                    'Design relational models with meaningful foreign key constraints',
+                    'Implement aggregation queries using Django ORM (Sum, annotate)',
+                    'Build running-balance ledger systems',
+                    'Structure daily → weekly → monthly time-based analytics',
+                    'Separate transactional logic from visualization layers'
+                ]} />
+                <Paragraph>
+                    More importantly, I understood that accounting systems are not about complex UI — they are about consistency, correctness, and data relationships.
+                </Paragraph>
+                <Paragraph>
+                    It also exposed trade-offs between simplicity for users and architectural scalability.
+                </Paragraph>
+            </Section>
 
-                {/* Filtering & Search */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Filtering & Search: Finding What Matters</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        As data grows, finding information quickly becomes critical.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-3">
-                        The records page supports:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Dealer-based filtering</li>
-                        <li>Amount-based filtering</li>
-                        <li>Date range filtering</li>
-                        <li>Real-time search</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        This allows users to move from summary to detail in seconds.
-                    </p>
-                </section>
-
-                {/* Architecture & Technology */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Architecture & Technology Choices</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        The system is built using:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li><strong>Django</strong> for backend logic</li>
-                        <li><strong>PostgreSQL</strong> for reliable data storage</li>
-                        <li><strong>Server-side rendering</strong> for simplicity</li>
-                        <li><strong>Vanilla JavaScript</strong> for interactivity</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        The focus was stability and clarity, not frontend complexity.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        The project is structured to be cloud-ready, with deployment planned on AWS infrastructure.
-                    </p>
-                </section>
-
-                {/* Security & Production */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Security & Production Reality</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        The current version prioritizes functionality and clarity.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-3">
-                        Some production features are intentionally deferred:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Role-based authentication</li>
-                        <li>Environment-based secrets</li>
-                        <li>Audit logging</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        These are acknowledged trade-offs, not oversights.
-                    </p>
-                </section>
-
-                {/* What This Taught Me */}
-                <section className="mb-12">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">What This Project Taught Me</h2>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed mb-4">
-                        This project reinforced several real-world lessons:
-                    </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-4">
-                        <li>Good accounting software is about trust, not features</li>
-                        <li>Simpler data models scale better</li>
-                        <li>Calculated values are safer than stored values</li>
-                        <li>Business logic must mirror real workflows</li>
-                        <li>Dashboards should explain, not impress</li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/80 leading-relaxed">
-                        Most importantly, it showed how backend design directly affects business usability.
-                    </p>
-                </section>
-
-                {/* Final Thoughts */}
-                <section className="bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20 rounded-lg p-8 border border-pink-200 dark:border-pink-500/30">
-                    <h2 className="text-3xl font-Ovo text-gray-800 dark:text-white mb-5">Final Thoughts</h2>
-                    <p className="text-gray-700 dark:text-white/90 leading-relaxed mb-4">
-                        JBB Projects is not just a CRUD application.
-                    </p>
-                    <p className="text-gray-700 dark:text-white/90 leading-relaxed mb-4">
-                        It is a practical accounting system built around:
-                    </p>
-                    <ul className="space-y-3">
-                        <li className="flex items-start gap-3">
-                            <span className="text-pink-500 text-xl">✓</span>
-                            <span className="text-gray-700 dark:text-white/90">Real business problems</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                            <span className="text-pink-500 text-xl">✓</span>
-                            <span className="text-gray-700 dark:text-white/90">Transparent financial logic</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                            <span className="text-pink-500 text-xl">✓</span>
-                            <span className="text-gray-700 dark:text-white/90">Maintainable architecture</span>
-                        </li>
-                    </ul>
-                    <p className="text-gray-700 dark:text-white/90 leading-relaxed mt-5">
-                        The real success of this project is not in the number of features — it's in how clearly it models everyday business operations.
-                    </p>
-                </section>
-            </div>
-        </div>
-    )
+            {/* Future Improvements */}
+            <Section id="future" title="Future Improvements">
+                <Paragraph>
+                    Several enhancements would strengthen the system:
+                </Paragraph>
+                <List items={[
+                    'Authentication & multi-user support',
+                    'Indexing on date fields for faster filtering',
+                    'Caching outstanding calculations',
+                    'Configurable profit margins instead of fixed 20%',
+                    'Export capabilities (CSV/PDF reports)',
+                    'Automated GST summaries',
+                    'REST API layer for mobile integration'
+                ]} />
+                <Paragraph>
+                    Long term, the system could evolve into a lightweight accounting SaaS tailored specifically for small businesses that prefer minimal data entry but still need structured financial visibility.
+                </Paragraph>
+                <Paragraph>
+                    This project marked the shift from "building features" to "designing systems."
+                </Paragraph>
+            </Section>
+        </Document>
+    );
 }

@@ -2,8 +2,16 @@
 import ContentTable from './contentTable';
 
 // Document Component - Main wrapper for documentation pages with table of contents
-// Usage: <Document tableOfContents={[...]} title="Page Title" subtitle="Optional subtitle">Content here</Document>
-export function Document({ tableOfContents = [], title, subtitle, children, className = '' }) {
+// Usage: <Document tableOfContents={[...]} title="Page Title" subtitle="Optional subtitle" showDemo={true}>Content here</Document>
+export function Document({ tableOfContents = [], title, subtitle, showDemo = false, children, className = '' }) {
+    const scrollToDemo = (e) => {
+        e.preventDefault();
+        const demoSection = document.getElementById('demo');
+        if (demoSection) {
+            demoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     return (
         <div className="w-full py-10 pt-32 scroll-mt-20">
             {/* Page Header */}
@@ -20,6 +28,19 @@ export function Document({ tableOfContents = [], title, subtitle, children, clas
                         </h1>
                     )}
                     <div className="w-24 h-1 bg-gradient-to-r from-[#b820e6] to-[#da7d20] mx-auto rounded-full"></div>
+                    
+                    {/* See Demo Link - shown when showDemo prop is true */}
+                    {showDemo && (
+                        <div className="mt-1">
+                            <a
+                                href="#demo"
+                                onClick={scrollToDemo}
+                                className="text-gray-700 dark:text-white/80 hover:text-[#b820e6] dark:hover:text-[#da7d20] transition-colors duration-300 text-sm font-Ovo underline decoration-1 underline-offset-4"
+                            >
+                                See Demo
+                            </a>
+                        </div>
+                    )}
                 </div>
             )}
 
