@@ -100,7 +100,7 @@ export function Heading({ children, className = '' }) {
 // List Component - Unordered list with consistent styling
 // Usage: <List items={['Item 1', 'Item 2', 'Item 3']} />
 export function List({ items, className = '' }) {
-    const combinedClassName = `list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 ${className}`.trim();
+    const combinedClassName = `list-disc list-inside space-y-2 text-gray-700 dark:text-white/80 ml-4 mb-6 ${className}`.trim();
 
     return (
         <ul className={combinedClassName}>

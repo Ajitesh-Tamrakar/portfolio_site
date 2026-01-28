@@ -12,7 +12,7 @@ import {
   Code,
   ImageDisplay,
 } from "./writingTools";
-import Head from "next/head";
+
 
 // export default function Sketch() {
 //     const tableOfContents = [
