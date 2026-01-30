@@ -302,7 +302,7 @@
 // //     )
 // // }
 
-import { Document, Section, SubSection, Paragraph, List, Code, SubsectionHighlight } from './writingTools';
+import { Document, Section, SubSection, Paragraph, List, Code, SubsectionHighlight, VideoDisplay } from './writingTools';
 
 export default function ObjectDetection() {
     const tableOfContents = [
@@ -329,6 +329,7 @@ export default function ObjectDetection() {
         { id: 'challenges', label: 'Challenges & Performance Observations', level: 0 },
         { id: 'learnings', label: 'Key Learnings', level: 0 },
         { id: 'future', label: 'Future Improvements', level: 0 },
+        { id: 'demo', label: 'Project Demo', level: 0 },
     ];
 
     return (
@@ -655,6 +656,9 @@ export default function ObjectDetection() {
                 <Paragraph>
                     On the ML side, experimenting with lighter YOLO variants or custom-trained models could improve both speed and domain-specific accuracy.
                 </Paragraph>
+            </Section>
+            <Section id={'demo'} title={'Project Demo'}>
+                <VideoDisplay src={'/demos/object_detection/object_detection.mp4'}></VideoDisplay>
             </Section>
         </Document>
     );

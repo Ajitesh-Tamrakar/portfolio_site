@@ -13,8 +13,8 @@ const ovo = Ovo({
 });
 
 export const metadata = {
-    title: "Eliana Portfolio - PrebuiltUI",
-    description: "Eliana Jade is a frontend web developer based in London, UK. I am a self-taught developer with 10 years of experience in multiple companies like Microsoft, Tesla and Apple.",
+    title: "Ajitesh Portfolio",
+   
 };
 
 export default function RootLayout({ children }) {
