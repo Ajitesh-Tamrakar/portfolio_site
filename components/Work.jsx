@@ -2,8 +2,8 @@ export default function Work() {
     const skills = {
         languages: ['English', 'Hindi'],
         programming: ['Python', 'HTML', 'CSS', 'JavaScript'],
-        technologies: ['Git', 'GitHub', 'Linux','N8N',],
-        technical: ['Data Structures and Algorithms', 'Data Preprocessing', 'Data Analysis'],
+        technologies: ['Git', 'GitHub', 'Linux','n8n',],
+        technical: ['Web developmet', 'Data Structures and Algorithms', 'Data Preprocessing', 'Data Analysis'],
         soft: ['Time Management and Organization', 'Adaptability', 'Problem Solving'],
         frameworks: ['Django', 'React', 'Flask']
     };
