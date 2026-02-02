@@ -25,15 +25,17 @@ export default function Navbar() {
 
     useEffect(() => {
 
-        window.addEventListener('scroll', () => {
+        const handleScroll = () => {
             if (scrollY > 50) {
-                navRef.current.classList.add('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-darkTheme', 'dark:shadow-white/20');
-                navLinkRef.current.classList.remove('bg-white', 'shadow-sm', 'bg-opacity-50', 'dark:border', 'dark:border-white/30', "dark:bg-transparent");
+                navRef.current?.classList.add('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-darkTheme', 'dark:shadow-white/20');
+                navLinkRef.current?.classList.remove('bg-white', 'shadow-sm', 'bg-opacity-50', 'dark:border', 'dark:border-white/30', "dark:bg-transparent");
             } else {
-                navRef.current.classList.remove('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-darkTheme', 'dark:shadow-white/20');
-                navLinkRef.current.classList.add('bg-white', 'shadow-sm', 'bg-opacity-50', 'dark:border', 'dark:border-white/30', "dark:bg-transparent");
+                navRef.current?.classList.remove('bg-white', 'bg-opacity-50', 'backdrop-blur-lg', 'shadow-sm', 'dark:bg-darkTheme', 'dark:shadow-white/20');
+                navLinkRef.current?.classList.add('bg-white', 'shadow-sm', 'bg-opacity-50', 'dark:border', 'dark:border-white/30', "dark:bg-transparent");
             }
-        })
+        }
+
+        window.addEventListener('scroll', handleScroll);
 
         // -------- light mode and dark mode -----------
 
@@ -42,6 +44,10 @@ export default function Navbar() {
         } else {
             document.documentElement.classList.remove('dark')
         }
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, [])
 
     return (

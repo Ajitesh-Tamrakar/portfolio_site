@@ -1,10 +1,10 @@
 export default function About() {
     const tools = [
         { name: 'vscode', icon: '/assets/vscode.png', },
-        { name: 'firebase', icon: '/assets/firebase.png', },
-        { name: 'mongodb', icon: '/assets/mongodb.png', },
-        { name: 'figma', icon: '/assets/figma.png', },
-        { name: 'git', icon: '/assets/git.png', },
+        { name: 'n8n', icon: '/assets/n8n.svg', },
+        { name: 'Postgre', icon: '/assets/postgre.png', },
+        { name: 'Linux', icon: '/assets/linux.png', },
+        { name: 'github', icon: '/assets/github.png', },
     ];
 
     const data = [
@@ -30,7 +30,7 @@ export default function About() {
             name: 'Frameworks',
             icon1: '/assets/framework-icon.png',
             icon2: '/assets/framework-icon-dark.png',
-            description: 'React, Next.js, Tailwind CSS, Node.js',
+            description: 'React, Django, Django REST, crewAI',
         },
     ];
     return (

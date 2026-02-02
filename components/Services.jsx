@@ -1,4 +1,10 @@
+"use client";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 export default function Services() {
+    const router = useRouter();
+    
     const services = [
         {
             name: 'Sketch',
@@ -39,7 +45,7 @@ export default function Services() {
                 {services.map((service) => (
                     <div 
                         key={service.name} 
-                        onClick={() => window.location.href = service.link}
+                        onClick={() => router.push(service.link)}
                         className="bg-white dark:bg-[#1a0a2e] rounded-lg overflow-hidden border border-gray-300 dark:border-white/30 hover:shadow-black cursor-pointer hover:-translate-y-1 duration-500 dark:hover:shadow-white transition-all"
                     >
                         {/* Project Image */}
@@ -57,11 +63,7 @@ export default function Services() {
                             <p className="text-sm text-gray-600 leading-5 dark:text-white/80 mb-5">{service.description}</p>
                             
                             <div className="flex items-center justify-between">
-                                <a 
-                                    href={service.link} 
-                                    onClick={(e) => e.stopPropagation()}
-                                    className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors group"
-                                >
+                                <span className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors group">
                                     Read more 
                                     <svg 
                                         width="14" 
@@ -77,7 +79,7 @@ export default function Services() {
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
                                         <polyline points="12 5 19 12 12 19"></polyline>
                                     </svg>
-                                </a>
+                                </span>
                                 
                                 {service.repoLink && (
                                     <a 
