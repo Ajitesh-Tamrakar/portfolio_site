@@ -66,7 +66,7 @@ export default function Navbar() {
                 <ul ref={navLinkRef} className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/30 dark:bg-transparent ">
                     <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="/#top">Home</a></li>
                     <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="/#about">About me</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="/#services">Projects</a></li>
+                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="/#projects">Projects</a></li>
                     <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="https://www.linkedin.com/in/ajitesh-tamrakar/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                     <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="https://github.com/Ajitesh-Tamrakar" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                 </ul>
@@ -97,9 +97,9 @@ export default function Navbar() {
                         <img src="/assets/close-white.png" alt="" className="w-5 cursor-pointer hidden dark:block" />
                     </div>
 
-                    <li><a href="/#top" onClick={closeMenu}>Home</a></li>
+                    <li><a href="/" onClick={closeMenu}>Home</a></li>
                     <li><a href="/#about" onClick={closeMenu}>About me</a></li>
-                    <li><a href="/#services" onClick={closeMenu}>Projects</a></li>
+                    <li><a href="/#projects" onClick={closeMenu}>Projects</a></li>
                     <li><a href="https://www.linkedin.com/in/ajitesh-tamrakar/" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>LinkedIn</a></li>
                     <li><a href="https://github.com/Ajitesh-Tamrakar" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>GitHub</a></li>
                 </ul>

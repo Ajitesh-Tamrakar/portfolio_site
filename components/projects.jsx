@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-export default function Services() {
+export default function Projects() {
     const router = useRouter();
     
     const services = [
@@ -36,7 +36,7 @@ export default function Services() {
         }
     ];
     return (
-        <div id="services" className="w-full px-[12%] py-10 scroll-mt-20">
+        <div id="projects" className="w-full px-[12%] py-10 scroll-mt-20">
             <h4 className="text-center mb-2 text-lg font-Ovo">From Concept to Code</h4>
             <h2 className="text-center text-5xl font-Ovo">Projects I Designed & Built</h2>
             <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">These projects represent my journey in applied AI and full-stack development — from object detection systems to accounting workflow automation. Each one was built to learn deeply and solve meaningful problems.</p>
