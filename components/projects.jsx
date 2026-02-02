@@ -9,28 +9,28 @@ export default function Projects() {
         {
             name: 'Sketch',
             image: '/thumbnails/sketch.jpg', // Add your project image path here
-            description: 'Automated Estimation Generation from Glass Design Images',
+            description: 'Automated estimation generation from glass design images using structured image processing and rule-based calculations.',
             link: '/sketch',
             repoLink: '', // Add GitHub repo URL here if available
         },
         {
             name: 'AI-Powered Marketing Creatives',
             image: '/demos/assetGeneration/homePage.png',                                                 
-            description: 'Web development is the process of building, programming...',
+            description: 'AI-powered system that generates marketing creatives and branded assets dynamically using automated layout logic.',
             link: '/asset-generation',
             repoLink: '', // Add GitHub repo URL here if available
         },
         {
             name: 'Object Detection',
             image: '/thumbnails/object_detection.jpg', // Add your project image path here
-            description: 'Web development is the process of building, programming...',
+            description: 'Real-time object detection web application using YOLOv5 integrated with Django for video and webcam inference.',
             link: '/object-detection',
             repoLink: 'https://github.com/Ajitesh-Tamrakar/Object_detection_YOLOV5.git', // Add GitHub repo URL here if available
         },
         {
             name: 'Web Accountancy',
             image: '/thumbnails/accountancy-preview..png', // Add your project image path here
-            description: 'Web development is the process of building, programming...',
+            description: 'Simplified accounting system for small businesses with digital bill storage, automated ledger calculation, and daily revenue tracking.',
             link: '/accountancy',
             repoLink: 'https://github.com/Ajitesh-Tamrakar/jbb_projects.git', // Add GitHub repo URL here if available
         }
