@@ -1,4 +1,4 @@
-# Eliana - Next.js Portfolio Template
+# Portfolio Template
 
 #### Preview
 
