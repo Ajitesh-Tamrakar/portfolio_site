@@ -19,7 +19,7 @@ I work on AI automation and computer vision systems, using full-stack developmen
                     contact me <img src="/assets/right-arrow-white.png" alt="" className="w-4" />
                 </a>
 
-                <a href="/assets/Resume_Ajitesh.pdf" download
+                <a href="/assets/Ajitesh_Tamrakar_Resume.pdf" download
                     className="px-10 py-2.5 rounded-full border border-gray-300 dark:border-white/25 hover:bg-slate-100/70 dark:hover:bg-darkHover flex items-center gap-2 bg-white dark:bg-transparent dark:text-white">
                     My resume <img src="/assets/download-icon.png" alt="" className="w-4 dark:invert" />
                 </a>
