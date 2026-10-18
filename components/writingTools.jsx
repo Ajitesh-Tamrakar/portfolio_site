@@ -126,6 +126,7 @@ export function Heading({ children, className = '' }) {
 
 // List Component - Unordered list with consistent styling
 // Usage: <List items={['Item 1', 'Item 2', 'Item 3']} />
+// Also accepts JSX inside items: <List items={[<><Bold>Term</Bold> - description</>]} />
 export function List({ items, className = '' }) {
     const combinedClassName = `list-disc list-inside space-y-1.5 md:space-y-2 text-sm md:text-base text-gray-700 dark:text-white/80 ml-2 md:ml-4 mb-4 md:mb-6 ${className}`.trim();
 

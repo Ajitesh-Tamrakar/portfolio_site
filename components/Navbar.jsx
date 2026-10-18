@@ -67,6 +67,7 @@ export default function Navbar() {
                     <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="/#top">Home</a></li>
                     <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="/#about">About me</a></li>
                     <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="/#projects">Projects</a></li>
+                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="/ledger-flow">LedgerFlow</a></li>
                     <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="https://www.linkedin.com/in/ajitesh-tamrakar/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                     <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="https://github.com/Ajitesh-Tamrakar" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                 </ul>
@@ -100,6 +101,7 @@ export default function Navbar() {
                     <li><a href="/" onClick={closeMenu}>Home</a></li>
                     <li><a href="/#about" onClick={closeMenu}>About me</a></li>
                     <li><a href="/#projects" onClick={closeMenu}>Projects</a></li>
+                    <li><a href="/ledger-flow" onClick={closeMenu}>LedgerFlow</a></li>
                     <li><a href="https://www.linkedin.com/in/ajitesh-tamrakar/" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>LinkedIn</a></li>
                     <li><a href="https://github.com/Ajitesh-Tamrakar" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>GitHub</a></li>
                 </ul>

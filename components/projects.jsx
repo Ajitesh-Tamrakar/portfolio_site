@@ -28,10 +28,10 @@ export default function Projects() {
             repoLink: 'https://github.com/Ajitesh-Tamrakar/Object_detection_YOLOV5.git', // Add GitHub repo URL here if available
         },
         {
-            name: 'Web Accountancy',
+            name: 'LedgerFlow',
             image: '/thumbnails/accountancy-preview..png', // Add your project image path here
             description: 'Simplified accounting system for small businesses with digital bill storage, automated ledger calculation, and daily revenue tracking.',
-            link: '/accountancy',
+            link: '/ledger-flow',
             repoLink: 'https://github.com/Ajitesh-Tamrakar/jbb_projects.git', // Add GitHub repo URL here if available
         }
     ];
