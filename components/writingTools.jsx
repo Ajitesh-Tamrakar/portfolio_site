@@ -102,12 +102,13 @@ export function SubSection({ id, title, children, className = '' }) {
 
 // Paragraph Component - Text paragraph with consistent styling
 // Usage: <Paragraph>Your text content goes here.</Paragraph>
+// `Backtick` segments in the text render as styled InlineCode chips
 export function Paragraph({ children, className = '' }) {
     const combinedClassName = `text-gray-700 dark:text-white/80 leading-relaxed mb-4 ${className}`.trim();
 
     return (
         <p className={combinedClassName}>
-            {children}
+            {processInline(children)}
         </p>
     );
 }
@@ -133,7 +134,7 @@ export function List({ items, className = '' }) {
     return (
         <ul className={combinedClassName}>
             {items.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li key={index}>{processInline(item)}</li>
             ))}
         </ul>
     );
@@ -149,9 +150,86 @@ export function SubsectionHighlight({ heading, children, className = '' }) {
     return (
         <div className={containerClassName}>
             {heading && (
-                <p className={headingClassName}>{heading}</p>
+                <p className={headingClassName}>{processInline(heading)}</p>
             )}
+            {processInline(children)}
+        </div>
+    );
+}
+
+// InlineCode Component - Styled chip for `code` mentions in prose
+// Usage: <InlineCode>BusinessScopedViewSet</InlineCode>
+// Or just write `BusinessScopedViewState` in a Paragraph/List/Table cell —
+// processInline() below turns backtick segments into this automatically.
+export function InlineCode({ children, className = '' }) {
+    const combinedClassName = `font-mono text-[0.85em] px-1.5 py-0.5 rounded bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-[#a21caf] dark:text-fuchsia-300 whitespace-normal break-words ${className}`.trim();
+
+    return (
+        <code className={combinedClassName}>
             {children}
+        </code>
+    );
+}
+
+// processInline - Walks content and renders `backtick` segments as <InlineCode>
+// Strings without backticks and JSX that is already styled pass through
+// unchanged, so mixed content (text + <Bold> / <Italic>) keeps working.
+function processInline(node) {
+    if (typeof node === 'string') {
+        if (!node.includes('`')) return node;
+        const parts = node.split('`');
+        return parts.map((part, i) => (
+            i % 2 === 1 ? <InlineCode key={i}>{part}</InlineCode> : part
+        ));
+    }
+    if (Array.isArray(node)) {
+        const mapped = node.map(processInline);
+        return mapped.some((child, i) => child !== node[i]) ? mapped : node;
+    }
+    if (React.isValidElement(node)) {
+        const processed = processInline(node.props.children);
+        return processed === node.props.children ? node : React.cloneElement(node, { children: processed });
+    }
+    return node;
+}
+
+// Table Component - Zebra Panel table for documentation
+// Usage: <Table headers={['Header 1', 'Header 2']} rows={[['Cell 1', 'Cell 2'], ['Cell 3', 'Cell 4']]} />
+// Plain-string cells: `backtick` segments render as styled InlineCode chips
+// JSX cells (e.g., <Bold>, <Italic>) render as-is
+export function Table({ headers, rows, className = '' }) {
+    const thClassName = 'text-left px-4 py-3 md:px-5 font-Ovo text-xs md:text-sm tracking-wide whitespace-nowrap';
+    const tdClassName = 'px-4 py-3 md:px-5 md:py-3.5 align-top leading-relaxed';
+
+    return (
+        <div className={`my-4 md:my-6 ${className}`.trim()}>
+            <div className="rounded-lg border border-gray-200 dark:border-white/15 overflow-hidden">
+                <div className="h-1 bg-gradient-to-r from-[#b820e6] to-[#da7d20]"></div>
+                <div className="overflow-x-auto">
+                    <table className="min-w-full border-collapse text-sm md:text-[15px]">
+                        <thead>
+                            <tr className="bg-gray-100/80 dark:bg-white/[0.06]">
+                                {headers.map((header, i) => (
+                                    <th key={i} className={`${thClassName} ${i === 0 ? 'font-semibold text-gray-900 dark:text-white' : 'text-gray-600 dark:text-white/70'}`}>
+                                        {processInline(header)}
+                                    </th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {rows.map((row, rowIndex) => (
+                                <tr key={rowIndex} className="border-b border-gray-200 dark:border-white/10 last:border-b-0 odd:bg-gray-50/70 dark:odd:bg-white/[0.03] hover:bg-lightHover dark:hover:bg-darkHover/70 transition-colors">
+                                    {row.map((cell, cellIndex) => (
+                                        <td key={cellIndex} className={`${tdClassName} ${cellIndex === 0 ? 'font-semibold text-gray-900 dark:text-white' : 'text-gray-700 dark:text-white/80'}`}>
+                                            {processInline(cell)}
+                                        </td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     );
 }
