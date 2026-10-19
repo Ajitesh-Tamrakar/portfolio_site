@@ -7,6 +7,14 @@ export default function Projects() {
     
     const services = [
         {
+            name: 'LedgerFlow',
+            image: '/LedgerFlow_assets/LedgerFlow_dashboard.png', // Add your project image path here
+            description: 'Simplified accounting system for small businesses with digital bill storage, automated ledger calculation, and daily revenue tracking.',
+            link: 'https://ledgerflow.ajiteshtamrakar.com/',
+            cta: 'Visit app',
+            repoLink: 'https://github.com/Ajitesh-Tamrakar/jbb_projects.git', // Add GitHub repo URL here if available
+        },
+        {
             name: 'Sketch',
             image: '/thumbnails/sketch.jpg', // Add your project image path here
             description: 'Automated estimation generation from glass design images using structured image processing and rule-based calculations.',
@@ -26,13 +34,6 @@ export default function Projects() {
             description: 'Real-time object detection web application using YOLOv5 integrated with Django for video and webcam inference.',
             link: '/object-detection',
             repoLink: 'https://github.com/Ajitesh-Tamrakar/Object_detection_YOLOV5.git', // Add GitHub repo URL here if available
-        },
-        {
-            name: 'LedgerFlow',
-            image: '/thumbnails/accountancy-preview..png', // Add your project image path here
-            description: 'Simplified accounting system for small businesses with digital bill storage, automated ledger calculation, and daily revenue tracking.',
-            link: '/ledger-flow',
-            repoLink: 'https://github.com/Ajitesh-Tamrakar/jbb_projects.git', // Add GitHub repo URL here if available
         }
     ];
     return (
@@ -45,7 +46,7 @@ export default function Projects() {
                 {services.map((service) => (
                     <div 
                         key={service.name} 
-                        onClick={() => router.push(service.link)}
+                        onClick={() => service.link.startsWith('http') ? window.open(service.link, '_blank') : router.push(service.link)}
                         className="bg-white dark:bg-[#1a0a2e] rounded-lg overflow-hidden border border-gray-300 dark:border-white/30 hover:shadow-black cursor-pointer hover:-translate-y-1 duration-500 dark:hover:shadow-white transition-all"
                     >
                         {/* Project Image */}
@@ -64,7 +65,7 @@ export default function Projects() {
                             
                             <div className="flex items-center justify-between">
                                 <span className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors group">
-                                    Read more 
+                                    {service.cta || 'Read more'} 
                                     <svg 
                                         width="14" 
                                         height="14" 
