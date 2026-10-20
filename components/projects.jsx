@@ -10,7 +10,8 @@ export default function Projects() {
             name: 'LedgerFlow',
             image: '/LedgerFlow_assets/LedgerFlow_dashboard.png', // Add your project image path here
             description: 'Simplified accounting system for small businesses with digital bill storage, automated ledger calculation, and daily revenue tracking.',
-            link: 'https://ledgerflow.ajiteshtamrakar.com/',
+            link: '/ledger-flow',
+            appLink: 'https://ledgerflow.ajiteshtamrakar.com/',
             cta: 'Visit app',
             repoLink: 'https://github.com/Ajitesh-Tamrakar/jbb_projects.git', // Add GitHub repo URL here if available
         },
@@ -64,7 +65,10 @@ export default function Projects() {
                             <p className="text-sm text-gray-600 leading-5 dark:text-white/80 mb-5">{service.description}</p>
                             
                             <div className="flex items-center justify-between">
-                                <span className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors group">
+                                <span
+                                    onClick={service.appLink ? (e) => { e.stopPropagation(); window.open(service.appLink, '_blank'); } : undefined}
+                                    className="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors group"
+                                >
                                     {service.cta || 'Read more'} 
                                     <svg 
                                         width="14" 
